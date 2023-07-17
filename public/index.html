@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Newsletter V.2</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-wrapper">
+        <h1 class="form-title">Stay updated!</h1>
+        <div class="form-mid-section">
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul class="list | mt-5">
+            <li>
+              <img src="images/icon-list.svg" alt="" srcset="" />
+              <span> Product discovery and building what matters</span>
+            </li>
+            <li>
+              <img src="images/icon-list.svg" alt="" srcset="" /><span>
+                Measuring to ensure updates are a success</span
+              >
+            </li>
+            <li>
+              <img src="images/icon-list.svg" alt="" />
+              <span> And much more!</span>
+            </li>
+          </ul>
+        </div>
+        <form class="form | margin-block--start-2" action="">
+          <div class="sub_title">
+            <label class="mb-2">Email address</label>
+            <span id="label" class="invali">Valid email required</span>
+          </div>
+
+          <div class="form-inner-wrapper">
+            <input id="01_email" type="email" placeholder="email@company.com" />
+            <button class="button">Subscribe to monthly newsletter</button>
+            <button class="button-gmail">
+              <img
+                class="service-icons"
+                src="/public/images/icons8-google.svg"
+                alt=""
+              />
+
+              <span>Subscribe with Gmail</span>
+            </button>
+            <button class="button-outlook">
+              <img
+                class="service-icons"
+                src="/public/images/icons8-outlook.svg"
+                alt=""
+                srcset=""
+              />
+              <span>Subscribe with Outlook</span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="image-wrapper">
+        <img
+          class="illustration"
+          src="images/illustration-sign-up-desktop.svg"
+          alt=""
+          srcset=""
+        />
+        <img
+          class="illustration-mobile"
+          src="images/illustration-sign-up-mobile.svg"
+          alt=""
+          srcset=""
+        />
+      </div>
+    </div>
+
+    <div class="success">
+      <div class="success-wrapper">
+        <img class="icon-success" src="images/icon-success.svg" alt="" />
+        <h1 class="success-title">Thanks for subscribing!</h1>
+        <p class="success-p">
+          A confirmation email has been sent to
+          <span class="success_span">osman@osmanoglu.com</span> Please open it
+          and click the button inside to confirm your subscription.
+        </p>
+        <button id="button_dismis" class="button">Dissmiss message</button>
+      </div>
+    </div>
+
+    <script>
+      // Success pop-up loaded as hidden
+      const success = document.querySelector(".success");
+      success.style.display = "none";
+
+      const email = document.getElementById("01_email");
+      const button = document.querySelector(".button");
+      const label = document.getElementById("label");
+      const container = document.querySelector(".container");
+
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (label.classList.contains("invalid")) {
+          label.classList.remove("invalid");
+          email.classList.remove("silly_boy");
+        }
+
+        const target = "@";
+        let timer = 0;
+        const text = email.value;
+        let arry = text.split("");
+
+        for (let i = 0; i < text.length; i++) {
+          if (arry[i] == "@") {
+            timer++;
+          }
+        }
+
+        if (timer === 0) {
+          label.classList.add("invalid");
+          email.classList.add("silly_boy");
+        } else {
+          // terminate container and launch success
+          container.style.display = "none";
+          success.style.display = "block";
+        }
+      });
+
+      // When dismiss button is clicked back to the main page
+
+      const success_button = document.getElementById("button_dismis");
+
+      success_button.addEventListener("click", (e) => {
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
