@@ -1,0 +1,57 @@
+<%- include('header'); -%>
+
+
+
+<div class="success">
+    <div class="success-wrapper">
+      <img class="icon-success" src="images/favicon-32x32.png" alt="" />
+      <h1 class="success-title">Please Provide Your Name</h1>
+
+      <form
+          id="form01"
+          class="form | margin-block--start-2"
+          method="post"
+          action="/form"
+        >
+          <div class="sub_title">
+            <label class="mb-2">Email address</label>
+            <span id="label" class="invali">Valid email required</span>
+          </div>
+
+          <div class="form-inner-wrapper">
+            <input
+              id="01_email"
+              type="email"
+              name="email"
+              placeholder="email@company.com"
+            />
+            <div class="sub_title">
+                <label class="mb-2">Name</label>
+                <span id="label" class="invali">Valid email required</span>
+              </div>
+
+              <input
+              id="01_name"
+              type="text"
+              name="name"
+              placeholder="Your Name"
+            />
+         
+
+            <button type="submit" form="form01" class="button">
+              Send
+            </button>
+     
+           
+          </div>
+         
+        </form>
+      
+     
+    </div>
+  </div>
+
+
+
+
+<%- include('footer'); -%>

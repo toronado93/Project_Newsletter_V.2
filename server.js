@@ -3,6 +3,12 @@ const app = express();
 const port = 3000;
 const ejs = require("ejs");
 const { v4: uuidvrs4 } = require("uuid");
+const db = require(__dirname + "/config/db.js");
+const serverController = require(__dirname +
+  "/app/controllers/serverController.js");
+const usersController = require(__dirname +
+  "/app/controllers/usersController.js");
+
 // Passport
 const passport = require("passport");
 const localStrategy = require("passport-local");
@@ -19,10 +25,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // Passport Skeleton(Motor)
 
-app.get("/", (req, res) => {
-  //   res.render("index.html");
-  res.render("index");
-});
+// Atlas Connection Test
+db.Atlas_Connection();
+
+// Routes
+app.get("/", serverController.get);
+app.post("/", usersController.processUser);
+app.post("/form",usersController.createUser);
 
 // Static MiddleWare
 app.use(express.static("public"));

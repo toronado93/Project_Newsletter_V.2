@@ -220,6 +220,13 @@ input:where([type="email"]) {
   border: 0.1px solid var(--clr-neutral-200);
   padding: var(--size-400) var(--size-400);
 }
+input:where([type="text"]) {
+  cursor: pointer;
+  color: var(--clr-neutral-200);
+  border-radius: 0.5rem;
+  border: 0.1px solid var(--clr-neutral-200);
+  padding: var(--size-400) var(--size-400);
+}
 
 .silly_boy {
   background-color: hsla(0, 100%, 80%, 0.5);
