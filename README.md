@@ -17,6 +17,10 @@ After creating node js environment and provide development environment;
 As a first step i compliated mongo db connection can be seen in db.js
 after i created a mechanism which asking user an email, if user doesnt exit, we navigate user to second screen,
 and ask additional information after user enroll the newsletter.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/da9b1b5c-44cd-4800-8964-5fb6337a1777)
+
+
 2.Restfull Api 
 I am curently practicing my restfull api skills.Hence i created server and user controller.js and seperated business logics.
 
