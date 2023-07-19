@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+
+
+
+<h1> Welcome <%= username %></h1>
+
+<% for (const key in obj) {  %>
+
+    <h2><%= key %></h2>
+
+    <ul>
+    <%    for(const value of obj[key]) { %>
+            <li> <%= value %></li>
+            <% } %>
+        </ul>
+      <% } %>
+
+
+<form id="0101" action="/logout" method="get"></form>
+      <button form="0101" type="submit"> Logout</button>
+
+      <%- include('footer'); -%>
