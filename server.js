@@ -87,6 +87,10 @@ app.post("/", usersController.processUser);
 app.post("/form",usersController.createUser);
 app.get("/logout",oauthController.logout);
 
+// Test
+
+app.get("/delete_event",oauthController.delete);
+
 // Static MiddleWare
 app.use(express.static("public"));
 

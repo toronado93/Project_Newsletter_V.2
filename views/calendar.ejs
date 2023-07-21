@@ -1,22 +1,109 @@
-<%- include('header'); -%>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+    
+    <title>Newsletter V.2</title>
+
+    <link rel="stylesheet" href="/css/style-calendar.css" />
+  </head>
+  <body>
+
+    <div class="container" >
+
+        <div class="section_image" >
+
+            <div class="welcome_title">
+            <h1> Welcome <%= name %></h1>
+        </div>
+
+        <div class="image_wrapper">
+            <img class="alarm_icon" src="/images/turn-notifications-on-button.png" alt="" srcset="">
+            <img class="calender_user_img" src="<%= picture %>" alt="user_pic" srcset="">
+        </div>
+    </div>
+
+    <div class="section_main" >
+
+        <div class="section_main_header">
+            <div class="even_column1" >
+           <h1> Here is your Calendar Events</h1>
+           <button class="edit_button" onclick="EditButtonClick()">
+            <img  src="/images/edit_button.svg" alt="" srcset="">
+           </button>
+        </div>
+
+        <div class="even_column2" >
+            <button class="okey_button" onclick=" OkeyButtonClick()" > <img src="/images/okey_button.svg" alt="" srcset=""></button>
+           
+
+        </div>
+           
+        </div>
+           <hr>
+
+            <% for (const key in obj) {  %>
+
+                <h2> <span class="date">Day: </span> <span class="date_blue" ><%= key %></span></h2>
+
+                <ul class="list" >
+                <%    for(const value of obj[key]) { %>
+                        <li>
+                            <input  type="checkbox" id="<%= value %>">
+                            <label for="<%= value %>"><%= value %></label>
+                            </li>
+                        <% } %>
+                </ul>
+                <% } %>
 
 
+           
 
-<h1> Welcome <%= username %></h1>
+    </div>
 
-<% for (const key in obj) {  %>
+    <div class="section_footer" >
+        <form id="0101" action="/logout" method="get"></form>
+        <button class="button_logout" form="0101" type="submit"> Logout</button>
+    </div>
 
-    <h2><%= key %></h2>
+    <form id="0202" action="/delete_event/:eventId" method="get"></form>
+    <button class="button_test" form="0202" type="submit"> Test Button</button>
 
-    <ul>
-    <%    for(const value of obj[key]) { %>
-            <li> <%= value %></li>
-            <% } %>
-        </ul>
-      <% } %>
+    </div>
 
 
-<form id="0101" action="/logout" method="get"></form>
-      <button form="0101" type="submit"> Logout</button>
+    <script>
+        function EditButtonClick(){
+       
+          const okey_button = document.querySelector(".okey_button");
 
-      <%- include('footer'); -%>
+          okey_button.style.display ="block";
+           
+
+        }
+
+        function OkeyButtonClick(){
+
+            const okey_button = document.querySelector(".okey_button");
+            okey_button.style.display ="none";
+        }
+
+    </script>
+    </body>
+    </html>
+    

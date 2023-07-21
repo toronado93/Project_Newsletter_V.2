@@ -1,6 +1,11 @@
 const passport = require("passport");
 const { google } = require("googleapis");
 
+
+
+// Testid
+let test_id= 0;
+
 exports.isLoggedIn = (req,res,next)=>{
 
     req.user ? next(): res.sendStatus(401);
@@ -11,7 +16,7 @@ exports.isLoggedIn = (req,res,next)=>{
 
 // exports.starter = passport.authenticate("google",{scope:["email","profile","https://www.googleapis.com/auth/calendar.readonly"]});
 exports.starter = passport.authenticate("google", {
-    scope: ["email", "profile", "https://www.googleapis.com/auth/calendar.readonly"],
+    scope: ["email", "profile", "https://www.googleapis.com/auth/calendar"],
   });
 
 exports.google_callback = passport.authenticate("google",{
@@ -25,11 +30,7 @@ exports.calendar = async (req, res) => {
       res.redirect("/google"); // Redirect to the Google authentication route if not authenticated
       return;
     }
-
-
-
     const accessToken = req.user.accessToken;
-
 
         // GOOGLE CALENDAR API ACCESS CODE 
      // Create a new OAuth2 client and set the access token
@@ -50,15 +51,26 @@ exports.calendar = async (req, res) => {
 
     // Oganize the datas and send to the calendar screen with ejs 
 //    console.log("User Info",req.user);
+
     // console.log(JSON.stringify(events.data, null, 2));
 
-    // Username
-    const username = req.user.displayName;
+   
 
+    // console.log(req.user);
+
+    // Username
+    const {name ,picture } = req.user._json;
+ 
     // How many events 
     const itemlength = events.data.items.length;
 
-    const obj ={};
+
+    // Fill the test_id
+
+    test_id = events.data.items[itemlength-1].id;
+    console.log("Last event id",test_id);
+
+    let obj ={};
 
     // Organize the data
     for(let i=1;i<itemlength;i++){
@@ -74,18 +86,14 @@ exports.calendar = async (req, res) => {
         obj[fixed_date]=[events.data.items[i].summary];
       }
     }
-
     // console.log(obj);
 
-    res.render("calendar", { username, obj});
-
+    res.render("calendar", { name, picture, obj});
 
   } catch (error) {
     console.error("Error fetching calendar events:", error.message);
     res.status(500).send("Error fetching calendar events");
   }
-
-
 }
 
 
@@ -116,4 +124,35 @@ function date_fixer(date){
     const join_date = reverse_split_array_second.join("-");
 
         return join_date;
+}
+
+
+
+
+exports.delete = async (req,res)=>{
+
+    const accessToken = req.user.accessToken;
+    // GOOGLE CALENDAR API ACCESS CODE 
+    // Create a new OAuth2 client and set the access token
+    const oauth2Client = new google.auth.OAuth2();
+    oauth2Client.setCredentials({ access_token: accessToken });
+
+    // Create a new Google Calendar instance
+    const calendar = google.calendar({ version: "v3", auth: oauth2Client });
+
+        try {
+
+            await calendar.events.delete({ calendarId:"primary", eventId:test_id });
+
+            console.log("Event deleted successfully");
+            
+        } catch (error) {
+
+            console.error("Error deleting calendar event:", error.message);
+
+        }
+
+        res.redirect("/google/calendar");
+       
+
 }
