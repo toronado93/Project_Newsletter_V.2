@@ -89,7 +89,7 @@ app.get("/logout",oauthController.logout);
 
 // Test
 
-app.get("/delete_event",oauthController.delete);
+app.get("/delete_event/:eventId",oauthController.delete);
 
 // Static MiddleWare
 app.use(express.static("public"));

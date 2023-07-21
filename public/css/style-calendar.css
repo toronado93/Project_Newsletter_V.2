@@ -224,11 +224,6 @@ ul{
     list-style-type:none;
 }
 
-ul > li{
-
-
-
-}
 
 .date{
     color: var(--clr-neutral-150);

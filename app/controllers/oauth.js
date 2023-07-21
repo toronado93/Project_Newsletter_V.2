@@ -2,10 +2,6 @@ const passport = require("passport");
 const { google } = require("googleapis");
 
 
-
-// Testid
-let test_id= 0;
-
 exports.isLoggedIn = (req,res,next)=>{
 
     req.user ? next(): res.sendStatus(401);
@@ -68,8 +64,9 @@ exports.calendar = async (req, res) => {
     // Fill the test_id
 
     test_id = events.data.items[itemlength-1].id;
-    console.log("Last event id",test_id);
 
+    let data_trasnfer_array =[];
+    let obj_eventid ={};
     let obj ={};
 
     // Organize the data
@@ -85,10 +82,16 @@ exports.calendar = async (req, res) => {
       else{
         obj[fixed_date]=[events.data.items[i].summary];
       }
-    }
-    // console.log(obj);
 
-    res.render("calendar", { name, picture, obj});
+       // Filling event_id
+       const event_id = events.data.items[i].id;
+       obj_eventid[i] =event_id;
+    }
+    data_trasnfer_array[0]=obj;
+    data_trasnfer_array[1]=obj_eventid;
+
+    // res.render("calendar", { name, picture, obj});
+     res.render("calendar", { name, picture, data_trasnfer_array});
 
   } catch (error) {
     console.error("Error fetching calendar events:", error.message);
@@ -131,7 +134,9 @@ function date_fixer(date){
 
 exports.delete = async (req,res)=>{
 
+    const event_Id = req.params.eventId;
     const accessToken = req.user.accessToken;
+
     // GOOGLE CALENDAR API ACCESS CODE 
     // Create a new OAuth2 client and set the access token
     const oauth2Client = new google.auth.OAuth2();
@@ -142,7 +147,7 @@ exports.delete = async (req,res)=>{
 
         try {
 
-            await calendar.events.delete({ calendarId:"primary", eventId:test_id });
+            await calendar.events.delete({ calendarId:"primary", eventId:event_Id});
 
             console.log("Event deleted successfully");
             

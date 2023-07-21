@@ -49,29 +49,33 @@
         </div>
 
         <div class="even_column2" >
-            <button class="okey_button" onclick=" OkeyButtonClick()" > <img src="/images/okey_button.svg" alt="" srcset=""></button>
+            <button class="okey_button" onclick=" DeleteEventSubmit()" > <img src="/images/okey_button.svg" alt="" srcset=""></button>
            
-
         </div>
            
         </div>
            <hr>
 
-            <% for (const key in obj) {  %>
+           <form id="checkboxForm">
+
+            <% let trigger =1 %>
+            <% for (const key in data_trasnfer_array[0]) {  %>
 
                 <h2> <span class="date">Day: </span> <span class="date_blue" ><%= key %></span></h2>
 
                 <ul class="list" >
-                <%    for(const value of obj[key]) { %>
+                <%    for(const value of data_trasnfer_array[0][key]) { %>
                         <li>
-                            <input  type="checkbox" id="<%= value %>">
+                            <!-- <input  type="checkbox" id="<%= value %>"> -->
+                            <input id="<%= value %>" type="checkbox" value="<%= data_trasnfer_array[1][trigger] %>">
                             <label for="<%= value %>"><%= value %></label>
                             </li>
+                            <% trigger++ %>
                         <% } %>
                 </ul>
                 <% } %>
 
-
+            </form>
            
 
     </div>
@@ -81,13 +85,17 @@
         <button class="button_logout" form="0101" type="submit"> Logout</button>
     </div>
 
-    <form id="0202" action="/delete_event/:eventId" method="get"></form>
-    <button class="button_test" form="0202" type="submit"> Test Button</button>
+       <!-- <form id="0202" action="/delete_event/:eventId" method="get"></form> -->
+       <form id="0202" method="get"></form>
+    <!-- <button class="button_test" form="0202" type="submit"> Test Button</button> -->
 
     </div>
 
 
     <script>
+
+        
+
         function EditButtonClick(){
        
           const okey_button = document.querySelector(".okey_button");
@@ -97,10 +105,35 @@
 
         }
 
-        function OkeyButtonClick(){
+        function DeleteEventSubmit(){
+            // Bring here selected checkboxs id
+            const checkbox_event_id =GetSelectedCheckbox();
+            // Update event id on url and send the form 
+            const form = document.getElementById("0202");
+            const action =`/delete_event/${checkbox_event_id}`;
+            form.action=action;
+
+            form.submit();
 
             const okey_button = document.querySelector(".okey_button");
             okey_button.style.display ="none";
+
+
+        }
+
+        function GetSelectedCheckbox(){
+
+            const form = document.getElementById("checkboxForm");
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            let checkbox ="";
+            checkboxes.forEach((c)=>{
+                if(c.checked){
+                    checkbox =c.value;
+                }
+            })
+
+            return checkbox;
+
         }
 
     </script>
