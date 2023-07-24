@@ -88,6 +88,26 @@ I did not like to google date format and slighty changed it with little function
 
 In order to have this functionality, I needed to add following code in my profect.
 
+Calendar method provide relevant data from google calendar services , such as profile name, profile id , event id etc. I created a data structure using two objects in one array system and transfer profile info, picture info and events info to the user page via ejs.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/1d65de6a-1dfd-4389-88b9-93e381c0304e)
+
+On the frontend , each checkbox is associated with their relevant event id, this functionality help app to understand which event should be deleted when user trigger the delete function.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/21fd325e-f481-4c3f-b8ab-13dc2064942b)
+
+When delete button is clicked two frontend functions help out to send selected checkbox info to the server side.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/d773a2c7-d37d-4f38-a3ae-4e1113375c4a)
+
+I chosed to send event's id via parametre. On the server side we catch the event id using req.params.eventId
+
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/927606fd-d307-411b-82fc-2842bb263d9a)
+
+With the following code , we send user access token and event is to the google service within delete method , google delete the event belonging to sent id.
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/6e975f08-4b54-48d2-857d-cd28af264bbe)
+
 
 
 
