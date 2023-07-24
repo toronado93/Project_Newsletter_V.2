@@ -110,6 +110,7 @@ With the following code , we send user access token and event is to the google s
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/6e975f08-4b54-48d2-857d-cd28af264bbe)
 
 Last Work
+<<<<<<< HEAD
 
 
 
@@ -118,6 +119,8 @@ Last Work
 
 
 
+=======
+>>>>>>> 8c9e535 (last commit)
 
 
 
