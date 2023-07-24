@@ -79,7 +79,17 @@ I did not like to google date format and slighty changed it with little function
 
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/48d18f64-5faa-4b9f-9715-a866be6e009d)
 
-For this part finally I added some css and here is final screen:
+4. Calendar Page
+
+   In the calendar page we have a table format says welcome to the user and shows user event. For now we only have demonstrate and delete mechanism. User can see their event and also they can delete their event via checkbox. Edit button trigger to okey button and seletected task can be deleted after okey button is clicked.
+
+   <img width="744" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/3574ff70-a729-4cf6-8080-ac2c9eb49781">
+   <img width="716" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/d5b539ae-9228-475a-8f82-2a9ec6e6f4ae">
+
+In order to have this functionality, I needed to add following code in my profect.
+
+
+
 
 
 
