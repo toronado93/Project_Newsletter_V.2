@@ -106,7 +106,10 @@ I chosed to send event's id via parametre. On the server side we catch the event
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/927606fd-d307-411b-82fc-2842bb263d9a)
 
 With the following code , we send user access token and event is to the google service within delete method , google delete the event belonging to sent id.
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/6e975f08-4b54-48d2-857d-cd28af264bbe)
+
+Last Work
 
 
 
