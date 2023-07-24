@@ -10,6 +10,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   }
+  , fieldId: {
+    type: Number,
+    ref: 'Field', // Reference to the 'fields' collection
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

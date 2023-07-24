@@ -10,6 +10,10 @@ const usersController = require(__dirname +
   "/app/controllers/usersController.js");
   const oauthController =require(__dirname+"/app/controllers/oauth.js");
 
+  // Google Manuel Service
+
+  const googleLocalController = require(__dirname+"/app/controllers/googleservice.js");
+
 // Passport
 const passport = require("passport");
 const localStrategy = require("passport-local");
@@ -77,11 +81,14 @@ passport.deserializeUser((user, done) => {
 // Atlas Connection Test
 db.Atlas_Connection();
 
+// Test
+// app.get("/",usersController.JoinTest,serverController.get);
+
 // Routes
-app.get("/", serverController.get);
+app.get("/",serverController.get);
 app.post("/google",oauthController.starter);
 app.get("/google/callback",oauthController.google_callback);
-app.get("/google/calendar",oauthController.isLoggedIn,oauthController.calendar);
+app.get("/google/calendar",oauthController.isLoggedIn,googleLocalController.OauthCheckFromGoogle,oauthController.calendar);
 app.get("/failure",oauthController.failure);
 app.post("/", usersController.processUser);
 app.post("/form",usersController.createUser);

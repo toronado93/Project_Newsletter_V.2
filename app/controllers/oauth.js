@@ -8,8 +8,6 @@ exports.isLoggedIn = (req,res,next)=>{
 
 }
 
-
-
 // exports.starter = passport.authenticate("google",{scope:["email","profile","https://www.googleapis.com/auth/calendar.readonly"]});
 exports.starter = passport.authenticate("google", {
     scope: ["email", "profile", "https://www.googleapis.com/auth/calendar"],
@@ -41,29 +39,20 @@ exports.calendar = async (req, res) => {
     const events = await calendar.events.list({
       calendarId: "primary", // Use "primary" to fetch events from the user's primary calendar
     });
-
     // Send the events data as the response
     // res.json(events.data);
-
     // Oganize the datas and send to the calendar screen with ejs 
 //    console.log("User Info",req.user);
 
     // console.log(JSON.stringify(events.data, null, 2));
-
-   
-
     // console.log(req.user);
-
     // Username
     const {name ,picture } = req.user._json;
  
     // How many events 
     const itemlength = events.data.items.length;
 
-
-    // Fill the test_id
-
-    test_id = events.data.items[itemlength-1].id;
+   
 
     let data_trasnfer_array =[];
     let obj_eventid ={};
