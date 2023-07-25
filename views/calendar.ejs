@@ -76,6 +76,14 @@
                 <% } %>
 
             </form>
+
+            <hr>
+            <div class="event_creator_wrapper" >
+                <form aria-colcount="event_create_form" class="event_creator_form" action="/create_event" method="post">
+                <input class="textarea" name="input_event" id="input" placeholder="Type Your New Event Here">
+                <button class="event_create_button" type="submit">Create New Event</button>
+            </form>
+            </div>
            
 
     </div>
@@ -108,7 +116,9 @@
         function DeleteEventSubmit(){
             // Bring here selected checkboxs id
             const checkbox_event_id =GetSelectedCheckbox();
-            // Update event id on url and send the form 
+
+            if(checkbox_event_id){
+                 // Update event id on url and send the form 
             const form = document.getElementById("0202");
             const action =`/delete_event/${checkbox_event_id}`;
             form.action=action;
@@ -117,7 +127,8 @@
 
             const okey_button = document.querySelector(".okey_button");
             okey_button.style.display ="none";
-
+                
+            }
 
         }
 

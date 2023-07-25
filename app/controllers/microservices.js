@@ -15,3 +15,36 @@ if(field[0] ==="outlook"){
     return 1;
 }
 }
+
+
+
+exports.getNewEventTime =() =>{
+
+    const d_now = new Date();
+    const d_half = new Date(d_now.getTime() + 30 * 60 * 1000);
+   
+
+    return [DateTimeObject(d_now),DateTimeObject(d_half)];
+}
+
+function DateTimeObject(date_obj){
+
+    const time_object ={
+  
+        Fullyear:date_obj.getFullYear(),
+        Month:date_obj.getMonth(),
+        Day:date_obj.getDate(),
+        T:"T",
+        Hours:date_obj.getHours(),
+        Minutes:date_obj.getMinutes(),
+        Seconds:date_obj.getSeconds(),
+      }
+  
+
+      const time_google_string = time_object.Fullyear+
+    "-"+time_object.Month+"-"+time_object.Day+time_object.T+
+    time_object.Hours+":"+time_object.Minutes+":"+time_object.Seconds;
+    
+   return time_google_string;
+
+}

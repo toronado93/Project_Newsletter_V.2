@@ -8,11 +8,12 @@ const serverController = require(__dirname +
   "/app/controllers/serverController.js");
 const usersController = require(__dirname +
   "/app/controllers/usersController.js");
-  const oauthController =require(__dirname+"/app/controllers/oauth.js");
-
+const oauthController =require(__dirname+"/app/controllers/oauth.js");
   // Google Manuel Service
+const googleLocalController = require(__dirname+"/app/controllers/googleservice.js");
+// Google service implementation
+const gs = require(__dirname+'/app/controllers/googleservice.js');
 
-  const googleLocalController = require(__dirname+"/app/controllers/googleservice.js");
 
 // Passport
 const passport = require("passport");
@@ -97,6 +98,7 @@ app.get("/logout",oauthController.logout);
 // Test
 
 app.get("/delete_event/:eventId",oauthController.delete);
+app.post("/create_event",gs.CreatNewEvent);
 
 // Static MiddleWare
 app.use(express.static("public"));
@@ -104,3 +106,5 @@ app.use(express.static("public"));
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
 });
+
+
