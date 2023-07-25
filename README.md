@@ -134,7 +134,41 @@ A join example between two field. This feauture will be added for admin in the f
 
 
 
-New design new readme 
+Now User can add entirely new event from the app.
+User screen
+<img width="598" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/29fab923-b97b-4206-88cd-d17d0e34d150">
+<img width="670" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/e5cc438b-6f0b-4863-b5d4-a6b59207b7ba">
+<img width="647" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/be711fef-04c8-4bb5-9758-8ca8cfb414a7">
+
+Code side;
+
+Create new event button trigger to route 
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/b64a3348-91fb-4240-b819-fc069dd99a2d)
+
+And then after route navigate flow to gs(googleservice js)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/e69ac37c-ac64-4b5e-a4a9-c7ded116e97e)
+
+Our main method is CreatNewEvent in this method we also have getNewEventTime method. This method is located in miscrosercices js.
+I created two method there , help us to obtain a date format suitable for google event obj format.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/c8a1ad5f-cff3-40db-b2fb-c84e252f1c50)
+
+In order to get more clear code snippet, I decided to sepearete google api gateway from the main code and call api via additional method which
+located in CreatNewEvent
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/49c99bbd-4074-4a59-8b15-e47bd54e15c9)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/c646b835-d9af-41a9-a790-d311e6170c55)
+
+
+
+
+
+
+
+
 
 
 
