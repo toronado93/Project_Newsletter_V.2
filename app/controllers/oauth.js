@@ -51,9 +51,7 @@ exports.calendar = async (req, res) => {
  
     // How many events 
     const itemlength = events.data.items.length;
-
-   
-
+    
     let data_trasnfer_array =[];
     let obj_eventid ={};
     let obj ={};
