@@ -130,6 +130,7 @@ In order to understand how node.js methods communication with each other , I cre
 
 A join example between two field. This feauture will be added for admin in the future 
 
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/3ee2f843-7616-4d20-80fd-ae99031e526b)
 
 
 
