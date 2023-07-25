@@ -82,33 +82,56 @@ I did not like to google date format and slighty changed it with little function
 
    In the calendar page we have a table format says welcome to the user and shows user event. For now we only have demonstrate and delete mechanism. User can see their event and also they can delete their event via checkbox. Edit button trigger to okey button and seletected task can be deleted after okey button is clicked.
 
+<img width="758" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/79917265-ac39-4ae0-ab39-1c84379ea314">
+
 
 
 In order to have this functionality, I needed to add following code in my profect.
 
 Calendar method provide relevant data from google calendar services , such as profile name, profile id , event id etc. I created a data structure using two objects in one array system and transfer profile info, picture info and events info to the user page via ejs.
 
-![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/1d65de6a-1dfd-4389-88b9-93e381c0304e)
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/16909e5f-423d-4a62-a0c0-984c83e81cee)
+
 
 On the frontend , each checkbox is associated with their relevant event id, this functionality help app to understand which event should be deleted when user trigger the delete function.
 
-![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/21fd325e-f481-4c3f-b8ab-13dc2064942b)
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/aa7dda8d-83cb-4d59-99d7-dd833069068f)
 
 When delete button is clicked two frontend functions help out to send selected checkbox info to the server side.
 
-![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/d773a2c7-d37d-4f38-a3ae-4e1113375c4a)
-
 I chosed to send event's id via parametre. On the server side we catch the event id using req.params.eventId
 
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/14be9d20-cd01-4119-bfd4-0b1e7a863c65)
 
-![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/927606fd-d307-411b-82fc-2842bb263d9a)
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/d1a75642-23c9-4aea-93f8-7bbb05d39485)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/74cd3e65-8c91-452f-bb02-df0bf46019a7)
+
 
 With the following code , we send user access token and event is to the google service within delete method , google delete the event belonging to sent id.
 
-![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/6e975f08-4b54-48d2-857d-cd28af264bbe)
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/7273b365-d8b3-4189-aba1-3e69567bd5b4)
 
-Last Work
-<<<<<<< HEAD
+I made some modification for future admin screen. Now when user enter the system via google , we also automatically save them into our database and also i created new mongo model name called field. Some modification is taken place on exist user model , now two model are associated each other for future admin screen features. With the existence of field mongo collection. Admin is able to understand where user comes from email , microsoft or google. Here some screen shoot of my new modifications.
+
+I added a middleware , check the user who comes from google, if they dont exist in our database , function save them in app db.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/c6d70900-49a2-4009-8d22-6747365c61a7)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/8eaf0c21-9ab5-423d-a74a-6508e3caf826)
+
+In order to understand how node.js methods communication with each other , I created a js is called microservices.js help app to distinguish where user comes from.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/7fe298c1-f31a-4799-9edd-488362413ee7)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/fd37a61e-3711-4dd2-91dd-70db25ae4ee2)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/288efe8d-0248-4ed1-bec2-8b840610e3e2)
+
+A join example between two field. This feauture will be added for admin in the future 
+
+
+
 
 
 
