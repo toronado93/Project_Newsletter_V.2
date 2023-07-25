@@ -31,3 +31,9 @@ exports.JoinTest = async (req,res,next)=>{
     next();
   
   }
+
+
+
+  exports.helloadmin =(req,res)=>{
+    console.log("test");
+  }
