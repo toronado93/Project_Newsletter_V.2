@@ -162,6 +162,40 @@ located in CreatNewEvent
 
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/c646b835-d9af-41a9-a790-d311e6170c55)
 
+Today We started to implement admin business model , controller and views,
+
+On the main page, if user click Admin , app navigate them into the admin page 
+
+<img width="967" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/ba82c156-b7a8-4cc7-8836-b442558d7671">
+
+
+Admin login panel 
+
+<img width="1002" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/58daa103-dab4-4dfd-8857-5103f490ea31">
+
+After succesfull authentication we navigate admin to admin panel here , admin can see user info.
+Sending email to user logic will be added in next development.
+
+<img width="1130" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/6de6d966-4712-4184-a9cb-c8daa128dad4">
+
+On the coding side;
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/374edc1a-2280-4f1d-8afe-aea1669d5a59)
+
+adminController.js is created for admin business purposes , We have a userjoin middleware retrieve join data from mongo 
+and data is transfered into req object(data will be caught in ProtectedAdminPage method)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/28dd04b4-7d36-450c-bcdf-8ce5032e10b5)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
