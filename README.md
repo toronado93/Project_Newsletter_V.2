@@ -198,6 +198,11 @@ Then final method , catch the join data(as I mentioned earlier) help us to rende
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/7b9555cc-5658-4e4b-8c76-4c9ab75d24a7)
 
 
+I gave really nice shape to admin page. Result is quite satisfying. Admin panel frontend is completed.
+
+<img width="1308" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/02aa9dcf-6576-4f4c-9a13-b1b64d90a9e9">
+
+
 
 
 
