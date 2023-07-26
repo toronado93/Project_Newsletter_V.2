@@ -96,10 +96,10 @@ exports.UserJoin = async (req,res,next)=>{
   // });
 
 // Manuel Session Controll
-  setTimeout(()=>{
-    req.user=null;
-    console.log("session killed");
-  },8000);
+  // setTimeout(()=>{
+  //   req.user=null;
+  //   console.log("session killed");
+  // },8000);
 
   // Catch the Join Array Here
   

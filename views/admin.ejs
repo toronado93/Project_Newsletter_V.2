@@ -24,41 +24,13 @@
   </head>
   <body>
 
-    <!-- This is my data model 
-    
-        [
- 
-  {
-    _id: new ObjectId("64be586bf7929cd9941ea071"),
-    email: 'eep0@outlook.com',
-    name: 'Emin',
-    fieldname: 'Email'
-  },
-  {
-    _id: new ObjectId("64be5ffeb6fb34b4e9032b2b"),
-    email: 'kubrajade1010@gmail.com',
-    name: 'Kubsss',
-    fieldname: 'Gmail'
-  },
-  {
-    _id: new ObjectId("64be80c2b3f89d9967d826be"),
-    email: 'e.ertac.p@gmail.com',
-    name: 'Emin Ertaç Pehlivan',
-    fieldname: 'Gmail'
-  }
-
-]
-    
-    
-    
-    
-    -->
     <div class="moving-gradient-background">
 
 <table class="custom-table">
 
     <thead>
         <tr>
+            <th> <input id="parent_checkbox" type="checkbox" value=""> </th>
             <th>User Name</th>
             <th>Email</th>
             <th>Field</th>
@@ -84,14 +56,18 @@
             <% for(let i = 0; i < join_data_array.length ; i++) { %>
 
             <tr>
-
+                <td>  <input id="<%=i%>" type="checkbox" value=""> </td>
                 <td> <%= join_data_array[i].name %></td>
                 <td> <%= join_data_array[i].email %></td>
                 <td> <%= join_data_array[i].fieldname %></td>
                 <td>
-                    <button>Button A</button>
-                    <button>Button A</button>
-                    <button>Button A</button>
+                    <!-- <button><img class="update_button" src="images/update_button.svg" alt=""></button>
+                    <button><img  class="delete_button" src="images/delete_button.svg" alt=""></button>
+                     -->
+                     <button>
+                        <svg id="svg1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 2 A 2.0002 2.0002 0 1 0 25 6 C 35.517124 6 44 14.482876 44 25 C 44 35.517124 35.517124 44 25 44 C 14.482876 44 6 35.517124 6 25 C 6 19.524201 8.3080175 14.608106 12 11.144531 L 12 15 A 2.0002 2.0002 0 1 0 16 15 L 16 4 L 5 4 A 2.0002 2.0002 0 1 0 5 8 L 9.5253906 8 C 4.9067015 12.20948 2 18.272325 2 25 C 2 37.678876 12.321124 48 25 48 C 37.678876 48 48 37.678876 48 25 C 48 12.321124 37.678876 2 25 2 z"/></svg>
+                     </button>
+                     <button><?xml version="1.0"?><svg id="svg2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px">    <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"/></svg></button>
 
                 </td>
 
@@ -100,11 +76,34 @@
             <% } %>
             
         </tbody>
-
-    </div>
-
-
 </table>
+
+<div class="email_service" >
+    <input class="input_email" type="text" placeholder="Email">
+    <button class="button_send" >Send</button>
+</div>
+</div>
+
+<script>
+
+        const parent_checkbox = document.getElementById("parent_checkbox");
+        parent_checkbox.addEventListener("click",()=>{
+
+            const allcheckboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            if(parent_checkbox.checked){
+                allcheckboxes.forEach((e)=>{
+                    e.checked=true;
+                });
+            }else{
+                allcheckboxes.forEach((e)=>{
+                    e.checked=false; 
+                });
+            }   
+});
+
+   
+</script>
 </body>
     </html>
     

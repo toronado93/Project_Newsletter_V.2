@@ -60,6 +60,7 @@ picture {
 
 
 body{
+    font-family: var(--ff-body);
     height: 100vh;
 }
 
@@ -69,6 +70,7 @@ body{
 .moving-gradient-background{
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -113,6 +115,16 @@ body{
     font-weight: bold;
 }
 
+.custom-table th:first-child {
+    border-top-left-radius: 1rem;
+    
+}
+
+.custom-table th:last-child {
+    border-top-right-radius: 1rem;
+}
+
+
 /* th icin border radius first child elements left , last child elements right */
 
 /* Apply styles to table body rows */
@@ -125,18 +137,66 @@ body{
 .custom-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #ece8e1f4;
+}
 
 /* Style the buttons in the table */
 .custom-table button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 8px;
+   cursor: pointer;
+   border: none;
+   background-color: transparent;
 }
 
-.custom-table button:hover {
+/* .custom-table button:hover {
     background-color: #0056b3;
+} */
+
+
+#svg1{
+    width: 30px;
+    height: 30px;
+    margin-right: var(--size-100);
+    fill: #4158d0;
+}
+
+#svg1:hover{
+    fill: white;
+}
+#svg2{
+    width: 30px;
+    height: 30px;
+    margin-left: var(--size-100);
+    fill: #4158d0;
+}
+#svg2:hover{
+    fill: white;
+}
+
+
+/* Email Service */
+
+.email_service{
+    margin-block-start: var(--size-700);
+}
+
+.input_email{
+    padding-left: var(--size-200);
+    border: none;
+    border-radius: 1rem;
+    width: 520px;
+    height: 100px;
+}
+
+.button_send{
+    cursor: pointer;
+    border: 1px solid var(--clr-neutral-150);
+    border-radius: 1rem;
+    padding: var(--size-300);
+    background-color: var(--clr-primary-300);
+    color: var(--clr-neutral-150);
+}
+.button_send:hover{
+    background-color:#4158d0;
+
 }
