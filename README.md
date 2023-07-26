@@ -186,11 +186,16 @@ and data is transfered into req object(data will be caught in ProtectedAdminPage
 
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/28dd04b4-7d36-450c-bcdf-8ce5032e10b5)
 
+Is admin method matchs the information , if auth success user get through or else recieve unauthorized error
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/308501c5-3295-4c87-a21f-e8552f8290a2)
 
 
+Then final method , catch the join data(as I mentioned earlier) help us to render admin page 
 
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/924aed1e-caf6-41fc-85cc-bd36da44b78f)
 
-
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/7b9555cc-5658-4e4b-8c76-4c9ab75d24a7)
 
 
 
