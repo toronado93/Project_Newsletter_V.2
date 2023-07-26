@@ -175,13 +175,31 @@ p {
 }
 
 .form-mid-section {
+  display: flex;
+  flex-direction: column;
+
   color: var(--clr-neutral-300);
+}
+
+/* Drop-Down Menu */
+
+.dropdown{
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--size-100); */
+}
+
+.dropdown label {
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-400);
 }
 
 .list li {
   display: flex;
   gap: var(--size-300);
-  margin-bottom: var(--size-300);
+  margin-bottom: var(--size-100);
 }
 
 .sub_title {

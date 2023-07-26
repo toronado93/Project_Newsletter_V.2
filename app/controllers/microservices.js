@@ -48,3 +48,7 @@ function DateTimeObject(date_obj){
    return time_google_string;
 
 }
+
+
+// Admin Password Creator
+// Add some Salt and Hash to send into the db

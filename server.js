@@ -13,7 +13,8 @@ const oauthController =require(__dirname+"/app/controllers/oauth.js");
 const googleLocalController = require(__dirname+"/app/controllers/googleservice.js");
 // Google service implementation
 const gs = require(__dirname+'/app/controllers/googleservice.js');
-
+// Admin Service
+const adminController = require(__dirname+'/app/controllers/adminController.js');
 
 // Passport
 const passport = require("passport");
@@ -94,9 +95,12 @@ app.get("/failure",oauthController.failure);
 app.post("/", usersController.processUser);
 app.post("/form",usersController.createUser);
 app.get("/logout",oauthController.logout);
-
-// Test
-
+app.get("/admin",adminController.AdminLogin);
+app.post("/adminlogin",adminController.UserJoin,adminController.isAdmin,adminController.ProtectedAdminPage);
+// app.get("/adminlogin",adminController.isLoggedIn,(req,res)=>{
+//   res.render("admin");
+// });
+// From Calendar
 app.get("/delete_event/:eventId",oauthController.delete);
 app.post("/create_event",gs.CreatNewEvent);
 

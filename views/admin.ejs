@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+    
+    <title>Newsletter V.2</title>
+
+    <link rel="stylesheet" href="css/style-admin.css" />
+  </head>
+  <body>
+
+    <!-- This is my data model 
+    
+        [
+ 
+  {
+    _id: new ObjectId("64be586bf7929cd9941ea071"),
+    email: 'eep0@outlook.com',
+    name: 'Emin',
+    fieldname: 'Email'
+  },
+  {
+    _id: new ObjectId("64be5ffeb6fb34b4e9032b2b"),
+    email: 'kubrajade1010@gmail.com',
+    name: 'Kubsss',
+    fieldname: 'Gmail'
+  },
+  {
+    _id: new ObjectId("64be80c2b3f89d9967d826be"),
+    email: 'e.ertac.p@gmail.com',
+    name: 'Emin Ertaç Pehlivan',
+    fieldname: 'Gmail'
+  }
+
+]
+    
+    
+    
+    
+    -->
+    <div class="moving-gradient-background">
+
+<table class="custom-table">
+
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Field</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+        <tbody>
+
+            <!-- I need to create a tr for all user -->
+
+            <!-- Example -->
+            <!-- <tr>
+                <td>Emin Pehlivan</td>
+                <td>dasjgnfkd@hotmail.com</td>
+                <td>Hotmail</td>
+                <td>
+                    <button>Button A</button>
+                    <button>Button A</button>
+                    <button>Button A</button>
+                </td>
+            </tr> -->
+
+            <% for(let i = 0; i < join_data_array.length ; i++) { %>
+
+            <tr>
+
+                <td> <%= join_data_array[i].name %></td>
+                <td> <%= join_data_array[i].email %></td>
+                <td> <%= join_data_array[i].fieldname %></td>
+                <td>
+                    <button>Button A</button>
+                    <button>Button A</button>
+                    <button>Button A</button>
+
+                </td>
+
+            </tr>
+
+            <% } %>
+            
+        </tbody>
+
+    </div>
+
+
+</table>
+</body>
+    </html>
+    

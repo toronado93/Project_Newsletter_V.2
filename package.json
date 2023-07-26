@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "kk": "kill-port 3000 --force",
     "start": "nodemon server.js",
+    "custom-restart": "npm run kk && npm run start",
     "watch-html": "onchange 'views/index.ejs' -- npm run start"
   },
   "keywords": [],
@@ -25,6 +27,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "kill-port": "^2.0.1",
     "onchange": "^7.1.0"
   }
 }

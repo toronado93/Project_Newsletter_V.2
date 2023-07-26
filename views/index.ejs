@@ -20,6 +20,19 @@
               <span> And much more!</span>
             </li>
           </ul>
+<!-- DROPDOWNN -->
+          <div class="dropdown">
+            <label class="mb-2">User Type</label>
+          <form id="form_drop_down" method="get">
+
+            <select id="destinationSelect" name="dropdown" >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+
+          </form>
+        </div>
+
         </div>
         <form id="form_google" action="/google" method="post"></form>
         <form
@@ -83,5 +96,22 @@
       </div>
     </div>
 
+    <script>
+
+      const form = document.getElementById("form_drop_down");
+      const drop_down = document.getElementById("destinationSelect");
+
+      drop_down.addEventListener("change",()=>{
+
+        // Get selected elements value // Assign this value into relevant form's action 
+        const action_url_string =`/${drop_down.value}`;
+        // And Submit the form.
+        form.action=action_url_string;
+        form.submit();
+
+      });
+
+
+    </script>
   
     <%- include('footer'); -%>

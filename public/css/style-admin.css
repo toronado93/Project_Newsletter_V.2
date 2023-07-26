@@ -1,0 +1,142 @@
+:root{
+
+
+    --clr-primary-100:hsl(0, 0%, 9%);
+    --clr-primary-150: hsla(0, 4%, 14%, 0.7);
+    --clr-primary-300:hsl(218, 100%, 59%);
+
+    --clr-neutral-100:hsla(227, 29%, 94%,0.8);
+    --clr-neutral-150:hsla(227, 29%, 94%);
+   
+
+    /* Typography */
+
+    --ff-body:'Poppins', sans-serif;
+    --fw-extraLight:200;
+    --fw-regular:400;
+    --fw-semiBold:600;
+
+    --fs-standart: 14px;
+/* 
+    --fw-regular: 400;
+    --fw-bold: 700;
+    --fw-extra-bold: 900; */
+  
+    /* Special variables for spacing */
+    --size-100: 0.25rem;
+    --size-200: 0.5rem;
+    --size-300: 0.75rem;
+    --size-400: 1rem;
+    --size-500: 1.5rem;
+    --size-600: 2rem;
+    --size-700: 3rem;
+    --size-800: 4rem;
+    --size-900: 5rem;
+}
+
+
+/* Reseter */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+
+body{
+    height: 100vh;
+}
+
+
+/* Table */
+
+.moving-gradient-background{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: moveGradient 10s linear infinite;
+    background:  linear-gradient(45deg, #4158d0,#c850c0, #4158d0,#c850c0,#4158d0);
+    background-size: 600% 600%;
+    /* background:  linear-gradient(45deg,#4158d0,#c850c0); */
+
+
+}
+
+@keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+
+/* Table */
+
+
+/* Apply general styles to the table */
+.custom-table {
+    height: max-content;
+    border-radius: 2rem;
+}
+
+/* Apply styles to table header */
+.custom-table th {
+    background-color:var(--clr-primary-300);
+    color: var(--clr-neutral-150);
+    padding: var(--size-300);
+    text-align: left;
+    font-weight: bold;
+}
+
+/* th icin border radius first child elements left , last child elements right */
+
+/* Apply styles to table body rows */
+.custom-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+/* Apply alternate row background color for better readability */
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style the buttons in the table */
+.custom-table button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.custom-table button:hover {
+    background-color: #0056b3;
+}
