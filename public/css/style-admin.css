@@ -200,3 +200,20 @@ body{
     background-color:#4158d0;
 
 }
+
+.button_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button_google_service{
+    margin-top: var(--size-100);
+    width: max-content;
+    border: none;
+    padding: var(--size-100);
+    border-radius: 1rem;
+}
+.button_google_service:hover{
+    background-color: black;
+    color: var(--clr-neutral-150);
+}

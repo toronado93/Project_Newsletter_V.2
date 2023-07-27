@@ -1,3 +1,8 @@
+
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+
+
 exports.FieldCheck = (email)=>{
 
   const result  = email.split("@");
@@ -52,3 +57,57 @@ function DateTimeObject(date_obj){
 
 // Admin Password Creator
 // Add some Salt and Hash to send into the db
+
+
+// Email Service 
+
+// Gmail SMTP INFO
+
+
+
+
+exports.SendEmail =async function (){
+  console.log(process.env.GOOGLE_EMAIL,process.env.GOOGLE_EMAIL_PASSWORD);
+
+// Transport Object
+
+const g_transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465, // Use 465 for SSL/TLS or 587 for STARTTLS
+    secure: true, // Set to true for SSL/TLS, false for STARTTLS
+    auth: {
+      user: process.env.GOOGLE_EMAIL, // Your Gmail email address
+      pass: process.env.GOOGLE_EMAIL_PASSWORD, // Your Gmail password or an application-specific password
+    },
+  });
+  
+
+  const g_mailOptions = {
+    from: process.env.GOOGLE_EMAIL,
+    to: "e.ertac.p@gmail.com",
+    subject: "Test Email",
+    text: "Hello, this is a test email sent using Nodemailer and Gmail!",
+  };
+
+
+  try {
+    await g_transporter.sendMail(g_mailOptions)
+    console.log("Email sent:", info.response);
+     
+  } catch (error) {
+
+    console.error("Error sending email:", error);
+  }
+
+
+//   g_transporter.sendMail(g_mailOptions , (error, info) => {
+//     if (error) {
+//       console.error("Error sending email:", error);
+//     } else {
+//       console.log("Email sent:", info.response);
+//     }
+//   });
+
+
+}
+

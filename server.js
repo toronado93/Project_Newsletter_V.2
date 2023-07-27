@@ -42,6 +42,7 @@ app.use(passport.session());
 // Passport Skeleton(Motor)
 
 passport.use(
+  "google",
   new GoogleStrategy(
    {
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -60,6 +61,29 @@ passport.use(
       done(null,profile)
    }
   )
+ );
+
+passport.use(
+  "gmail",
+  new GoogleStrategy(
+    {
+     clientID: process.env.GOOGLE_CLIENT_ID,
+     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+     callbackURL: "http://localhost:3000/gmail",
+    },
+ 
+    function (accessToken,refreshToken,profile,done){
+ 
+   // Google GMAIL API
+ 
+       profile.accessTokenGMAIL = accessToken;
+       profile.refreshTokenGMAIL = refreshToken;
+     
+       console.log(profile.accessTokenGMAIL,profile.refreshTokenGMAIL);
+     
+       done(null,profile)
+    }
+   )
 );
 
 
@@ -103,6 +127,16 @@ app.post("/adminlogin",adminController.UserJoin,adminController.isAdmin,adminCon
 // From Calendar
 app.get("/delete_event/:eventId",oauthController.delete);
 app.post("/create_event",gs.CreatNewEvent);
+
+
+// Gmail
+
+// Get request comes from admin-page
+app.get("/gmailcon",gs.Google_OauthForGmailstarter,)
+// Callback comes from google
+app.get("/gmail",gs.gmailCallback);
+app.get("/adminpageviagoogle",gs.AdminPage);
+
 
 // Static MiddleWare
 app.use(express.static("public"));

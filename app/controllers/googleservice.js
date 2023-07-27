@@ -4,9 +4,12 @@ const user = require("../models/user.js");
 
 const uuid = require("uuid");
 
+// Email Test
+// ms.SendEmail();
 
 // OAUTH2 IMPLEMENTATION
 const { google } = require("googleapis");
+const passport = require("passport");
 
 const oauth2Client =(accessToken)=>{
 
@@ -17,6 +20,19 @@ const oauth2Client =(accessToken)=>{
   const calendar = google.calendar({ version: "v3", auth: oauth2Client });
 
   return [oauth2Client,calendar];
+
+}
+
+const oauth2ClientGmail =(accessToken)=>{
+
+  const oauth2Client = new google.auth.OAuth2();
+
+  oauth2Client.setCredentials({ access_token: accessToken });
+
+  const gmail = google.gmail({ version: "v1", auth: oauth2Client });
+
+  // 
+  return [oauth2Client,gmail];
 
 }
 
@@ -104,4 +120,63 @@ exports.CreatNewEvent = async (req,res)=>{
    
 
   res.redirect("/google/calendar");
+}
+
+
+
+exports.Google_OauthForGmailstarter = passport.authenticate("gmail",{
+  scope:["email","profile","https://www.googleapis.com/auth/gmail.readonly"],
+});
+exports.gmailCallback =  passport.authenticate("gmail",{
+  successRedirect:"adminpageviagoogle",
+  failureRedirect:"failure"
+});
+
+
+// Connect accesstoken with Google API and send to the admincontroller Page
+exports.AdminPage = async (req,res)=>{
+
+  // Check if authentication legit
+
+  // Connect with the Gmail API
+
+   const accesstoken= req.user.accessTokenGMAIL;
+   const gmail = oauth2ClientGmail(accesstoken);
+
+   const responde = await gmail[1].users.messages.list(
+        {
+          userId: 'me',
+          q: 'in:inbox',
+        }
+      );
+
+      const emails = responde.data.messages;
+
+      console.log(emails);
+      
+      emails[0].id
+
+      for(let i=0; i<emails.length;i++)
+      {
+        try {
+          await gmail.users.messages.get({
+            userId: "me",
+            id: emails[i].id,
+          })
+          
+        } catch (error) {
+          
+        }
+
+      }
+
+
+
+}
+
+
+
+exports.SendingEmailService =(req,res)=>{
+
+
 }

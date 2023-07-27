@@ -81,6 +81,9 @@
 <div class="email_service" >
     <input class="input_email" type="text" placeholder="Email">
     <button class="button_send" >Send</button>
+    <div class="button_wrapper">
+    <button class="button_google_service" onclick="gmailServiceStarter()">Connect to the Email Service</button>
+</div>
 </div>
 </div>
 
@@ -101,6 +104,22 @@
                 });
             }   
 });
+
+    function gmailServiceStarter(){
+
+        const form = document.createElement('form');
+        form.id = 'myForm';
+        form.method="GET";
+        form.action ="/gmailcon";
+
+        // Attached form into document
+
+        const container = document.querySelector(".email_service");
+        container.appendChild(form);
+
+        form.submit();
+
+    }
 
    
 </script>
