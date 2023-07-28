@@ -150,27 +150,75 @@ exports.AdminPage = async (req,res)=>{
         }
       );
 
-      const emails = responde.data.messages;
+      const email_ids = responde.data.messages;
+      const email_lock_id =[];
+       
 
-      console.log(emails);
+      for(let i=0;i<email_ids.length;i++){
+
+        // Fill with id
+        email_lock_id.push(email_ids[i].id);
+        
+      }
       
-      emails[0].id
-
-      for(let i=0; i<emails.length;i++)
-      {
         try {
-          await gmail.users.messages.get({
-            userId: "me",
-            id: emails[i].id,
-          })
-          
-        } catch (error) {
-          
-        }
+    
+        const promises = email_lock_id.map((ids) => {
+          return gmail[1].users.messages.get({
+            userId: 'me',
+            id: ids,
+          });
+        });
+        const results = await Promise.all(promises);
 
+        // We only interest with data
+        const data = results.map((arrays_element)=> arrays_element.data);
+       
+        // Reaching to the mail
+
+       const payLoad_headers = data.map((item)=> item.payload).map((nested_item)=>nested_item.headers);
+      //  res.json(payLoad_headers);
+
+      // Fetch Relevant Data
+
+      const snippet = data.map((d)=> d.snippet);
+      
+      const classifiedSubject = payLoad_headers.map((childArray)=> childArray.filter((obj)=> obj.name ==="Subject"))
+      .flat();
+      const classifiedSender  = payLoad_headers.map((childArray)=> childArray.filter(obj => obj.name==="From"));
+      
+      // console.log(classifiedSubject);
+      
+    // Now Classified the data 
+    // We define sender is the new main array , and consolide relevent rest of the data 
+    // into sender array
+
+    const itemslength = snippet.length;
+
+    for(let i=0;i<itemslength;i++){
+
+      let temp_obj={
+        message:snippet[i]
       }
 
+      // Import subject into snippet
 
+      // FetchFrom Subject to Sender
+      classifiedSender[i].push(classifiedSubject[i]);
+      classifiedSender[i].push(temp_obj);
+      // console.log(snippet[i]);
+
+    }
+    console.log(classifiedSender);
+      
+      } 
+        catch (error) {
+          console.log(error);
+        }
+
+        // If I can i Will send all data with an object and
+        // It will be reacable to other endpoint.
+        res.redirect("adminlogin");
 
 }
 

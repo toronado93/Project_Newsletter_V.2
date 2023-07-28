@@ -137,6 +137,9 @@ app.get("/gmailcon",gs.Google_OauthForGmailstarter,)
 app.get("/gmail",gs.gmailCallback);
 app.get("/adminpageviagoogle",gs.AdminPage);
 
+// Making Get adminloginpage with google Ouath and AdminJoin info
+app.get("/adminlogin",adminController.UserJoin,adminController.ProtectedAdminPage);
+
 
 // Static MiddleWare
 app.use(express.static("public"));
