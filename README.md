@@ -216,22 +216,30 @@ Process starts when admin decide connect with email service
 
 <img width="1022" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/2fd001b5-6f71-4159-98aa-8292e4a01223">
 Frontend trigger button
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/b0c651c9-9441-4c76-a548-9ce5307fed2e)
 First step of google authentication
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/7e734e21-bd9d-41e0-a52f-32e6951a531d)
 Definding scopes
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/e1adbca2-2855-4328-b382-e8cbd6e97d1b)
 Creating gmail strategy
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/1144818c-0709-4bfe-8723-2e490be4fd25)
 Callback
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/d73a92cd-7901-4cca-a0c2-24e4d79fd506)
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/613f850b-03d3-480f-9be9-233907351ed5)
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/afb6b1a1-7354-4d7d-af1a-5d230b7d2fac)
+
 In adminpage function I fetch user email information from google, google send too many information , I eliminated what would i need using 
 mapping and filtering array methods
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/814d48ba-6f64-473d-9b20-3e9d8560ebe1)
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/e3218091-c95b-4250-922a-d5ab5620e482)
 And Final result we managed to fetch mails in ideal format
+
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/2eee67cb-c888-4404-88ce-5f46fa89ae60)
 
 
