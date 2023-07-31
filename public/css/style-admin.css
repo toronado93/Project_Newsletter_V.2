@@ -176,6 +176,16 @@ body{
 
 /* Email Service */
 
+.title_email {
+    border: none;
+    padding: var(--size-100);
+    margin-bottom: var(--size-100);
+    margin-left: var(--size-300);
+    border-radius: 0.5rem;
+    width: 500px;
+   
+}
+
 .email_service{
     margin-block-start: var(--size-700);
 }
@@ -217,3 +227,37 @@ body{
     background-color: black;
     color: var(--clr-neutral-150);
 }
+
+
+
+/* POP-UP */
+
+#popup{
+
+    width: max-content;
+    background-color: rgb(221, 10, 10);
+    color: var(--clr-neutral-150);
+    padding: var(--size-200);
+    text-align: center;
+    border-radius: 0.5rem;
+    transform: translateY(7rem);
+}
+#popup p{
+    width: 20ch;
+
+}
+
+
+
+/* Transition Classess */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  }
+  
+  .popup-show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  }

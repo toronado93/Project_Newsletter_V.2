@@ -88,6 +88,8 @@ exports.UserJoin = async (req,res,next)=>{
 
   exports.ProtectedAdminPage = (req,res)=>{
 
+
+
     // Add this on logout page in admin page
   //   req.logout((err)=>{
 
@@ -105,9 +107,14 @@ exports.UserJoin = async (req,res,next)=>{
   
    const join_data_array = req.table_join;
 
+  console.log("Join_data_check",join_data_array);
+
+
     req.user ? res.render("admin",{join_data_array}): res.sendStatus(401);
 
 
 
   }
+
+  
 

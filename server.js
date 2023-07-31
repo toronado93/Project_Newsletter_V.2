@@ -15,12 +15,18 @@ const googleLocalController = require(__dirname+"/app/controllers/googleservice.
 const gs = require(__dirname+'/app/controllers/googleservice.js');
 // Admin Service
 const adminController = require(__dirname+'/app/controllers/adminController.js');
-
+const ms = require(__dirname+'/app/controllers/microservices.js');
 // Passport
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const session = require("express-session");
+
+
+
+// Routes
+
+const route = require(__dirname+'/app/routes/route.js');
 
 // Middleware
 app.set("view engine", "ejs");
@@ -78,8 +84,9 @@ passport.use(
  
        profile.accessTokenGMAIL = accessToken;
        profile.refreshTokenGMAIL = refreshToken;
-     
-       console.log(profile.accessTokenGMAIL,profile.refreshTokenGMAIL);
+       console.log("Gmail Api Successfuly Connected");
+     console.log(accessToken,refreshToken);
+      //  console.log(profile.accessTokenGMAIL,profile.refreshTokenGMAIL);
      
        done(null,profile)
     }
@@ -139,7 +146,12 @@ app.get("/adminpageviagoogle",gs.AdminPage);
 
 // Making Get adminloginpage with google Ouath and AdminJoin info
 app.get("/adminlogin",adminController.UserJoin,adminController.ProtectedAdminPage);
+// Admin sending email
 
+// We use userjoin middleware in order to fetch data to req,res environment
+// app.post("/adminsendingemail",gs.SendingEmailService,adminController.UserJoin,adminController.ProtectedAdminPage);
+// Above route chain cause a problem so we write new chain in order to control our process
+app.post("/adminsendingemail",route.processEmailAndData);
 
 // Static MiddleWare
 app.use(express.static("public"));

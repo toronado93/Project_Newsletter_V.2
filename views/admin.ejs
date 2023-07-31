@@ -56,8 +56,9 @@
             <% for(let i = 0; i < join_data_array.length ; i++) { %>
 
             <tr>
-                <td>  <input id="<%=i%>" type="checkbox" value=""> </td>
+                <td>  <input name="<%= join_data_array[i].email %>" type="checkbox" value=""> </td>
                 <td> <%= join_data_array[i].name %></td>
+                <!-- Data is filled, input is created -->
                 <td> <%= join_data_array[i].email %></td>
                 <td> <%= join_data_array[i].fieldname %></td>
                 <td>
@@ -79,13 +80,29 @@
 </table>
 
 <div class="email_service" >
-    <input class="input_email" type="text" placeholder="Email">
-    <button class="button_send" >Send</button>
+    <input class="title_email" name="title_email" type="text" placeholder="Subject">
+    <div class="body_wrapper" >
+    <input class="input_email" name="input_email" type="text" placeholder="Email">
+    <button class="button_send" onclick="emailSenderControl()">Send</button>
+</div>
     <div class="button_wrapper">
     <button class="button_google_service" onclick="gmailServiceStarter()">Connect to the Email Service</button>
+    <form id="0101" action="/logout" method="get"></form>
+        <button class="button_logout" form="0101" type="submit"> Logout</button>
 </div>
 </div>
+
+
+<!-- POP UP -->
+
+<div id="popup" class="hidden">
+  <p>Recipient and email content can't be empty</p>
 </div>
+
+
+</div>
+
+
 
 <script>
 
@@ -118,6 +135,121 @@
         container.appendChild(form);
 
         form.submit();
+
+    }
+
+    function emailSenderControl(){
+
+        let value =[false,false,false];
+
+         // Check if there no checkbox is checked row , doesnt go further
+
+        //  CHECKBOX CONTROL
+         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+         checkboxes.forEach((c)=>{
+
+            if(c.checked)
+            {
+                value[0] =true
+            }
+
+         });
+
+         //  TITLE CONTROL
+
+         const title = document.querySelector(".title_email");
+         if(title.value)
+         {
+            value[1]=true;
+         }
+        //   BODY CONTROLL
+        const body = document.querySelector(".input_email");
+        if(body.value)
+        {
+            value[2]=true;
+        }
+
+        //  Validation
+        const trueItems = value.filter((e)=> e === true);
+       
+         if(trueItems.length === 3){
+            return emailSender();
+         }
+         else{
+            return  ControlPopUp();
+         }
+
+
+    }
+
+    function emailSender(){
+
+    
+        // EMail String
+        const form = document.createElement('form');
+        const email_string =document.querySelector(".input_email");
+        const title_string =document.querySelector(".title_email");
+        form.appendChild(email_string);
+        form.appendChild(title_string);
+        form.id = 'myEmailSenderForm';
+        form.method="POST";
+        form.action ="/adminsendingemail";
+
+        if(!document.getElementById("myEmailSenderForm")){
+
+        const container = document.querySelector(".email_service");
+        container.appendChild(form);
+
+        }
+        // Fill checkbox value with nearest td's classname called email_info
+
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        // console.log(checkboxes);
+
+        // fill checkbox 
+
+        checkboxes.forEach(c=>{
+            
+            
+            if(c.checked){
+                
+                // Create an input fill with relevant data and sent into the form.
+                const hiddenInput = document.createElement('input');
+
+                hiddenInput.type = 'text';
+                hiddenInput.name = c.name;
+                hiddenInput.value = c.name;
+                hiddenInput.style.display = 'none';
+                hiddenInput.classList.add("existence");
+
+                //added into form 
+
+                form.appendChild(hiddenInput);
+
+            }
+           });
+
+        form.submit();
+    }
+
+
+    function ControlPopUp(){
+
+       
+        const popup = document.getElementById('popup');
+
+        popup.classList.remove("hidden");
+        popup.classList.add("popup-show");
+
+
+        setTimeout(()=>{
+            popup.classList.remove('popup-show');
+            popup.classList.add("hidden");
+
+        },2500);
+     
 
     }
 

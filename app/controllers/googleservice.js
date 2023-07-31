@@ -1,8 +1,8 @@
 const usersController = require("../controllers/usersController.js");
 const ms = require("../controllers/microservices.js")
 const user = require("../models/user.js");
-
 const uuid = require("uuid");
+require("dotenv").config();
 
 // Email Test
 // ms.SendEmail();
@@ -10,6 +10,7 @@ const uuid = require("uuid");
 // OAUTH2 IMPLEMENTATION
 const { google } = require("googleapis");
 const passport = require("passport");
+const { raw } = require("express");
 
 const oauth2Client =(accessToken)=>{
 
@@ -125,7 +126,8 @@ exports.CreatNewEvent = async (req,res)=>{
 
 
 exports.Google_OauthForGmailstarter = passport.authenticate("gmail",{
-  scope:["email","profile","https://www.googleapis.com/auth/gmail.readonly"],
+  accessType: 'offline',
+  scope:["email","profile","https://www.googleapis.com/auth/gmail.readonly","https://www.googleapis.com/auth/gmail.send"],
 });
 exports.gmailCallback =  passport.authenticate("gmail",{
   successRedirect:"adminpageviagoogle",
@@ -135,6 +137,9 @@ exports.gmailCallback =  passport.authenticate("gmail",{
 
 // Connect accesstoken with Google API and send to the admincontroller Page
 exports.AdminPage = async (req,res)=>{
+
+  
+
 
   // Check if authentication legit
 
@@ -209,7 +214,8 @@ exports.AdminPage = async (req,res)=>{
       // console.log(snippet[i]);
 
     }
-    console.log(classifiedSender);
+    // Final Data Version
+    // console.log(classifiedSender);
       
       } 
         catch (error) {
@@ -224,7 +230,85 @@ exports.AdminPage = async (req,res)=>{
 
 
 
-exports.SendingEmailService =(req,res)=>{
+exports.SendingEmailService =async (req,res,next)=>{
 
+  let accesstoken ="";
+  let gmail       =""; 
+  let sender      = "";
+
+
+  // Controll
+  if(typeof req.user === 'undefined'){
+    res.send("Google service baglan once");
+  }
+  
+  if(typeof req.user !== 'undefined')
+  {
+      // GOOGLE API
+   accesstoken= req.user.accessTokenGMAIL;
+   gmail = oauth2ClientGmail(accesstoken);
+
+  }
+
+  // USER AND EMAIL_INFO Fetching from frontend
+  const email_user = req.body;
+  
+  let email_user_array_format=[];
+  let messageBody  = "";
+  let messageTitle = "";
+
+  for (const key in email_user){
+
+    if(key === "input_email")
+    {
+      messageBody = email_user[key];
+    }
+    else if(key === "title_email"){
+      
+        messageTitle = email_user[key];
+      }
+      else {
+        
+        email_user_array_format.push(email_user[key]); 
+      }
+      
+    }
+      
+  // Creating Raw
+  const raw_responde = ms.SendEmail(email_user_array_format,messageTitle,messageBody);
+console.log(raw_responde);
+  // Multiple promises 
+  try {
+
+    const promises = raw_responde.map((raw_map)=>{
+
+      return gmail[1].users.messages.send({
+
+        userId:"me",
+        resource: {
+          raw: raw_map,
+        },
+      });
+    });
+
+      const result = await Promise.all(promises);
+      console.log("Email sent successfully:");
+
+        next();
+    
+  } catch (error) {
+
+    console.log(error);
+    res.send(error);
+    
+  }
+  
+  // if(typeof req.user !== "undefined"){
+
+  //   next();
+  // }
+    
 
 }
+
+
