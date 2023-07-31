@@ -244,6 +244,10 @@ And Final result we managed to fetch mails in ideal format
 
 
 
+Implementing Email system into the project
+
+
+
 
 
 
