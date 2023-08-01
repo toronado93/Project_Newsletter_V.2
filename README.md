@@ -247,6 +247,78 @@ And Final result we managed to fetch mails in ideal format
 Implementing Email system into the project
 
 
+I added subject textbox and logout button on admin page.
+
+<img width="947" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/aa036623-ce07-417a-8825-ca33eb12ed67">
+
+I decided to implement expremental js method control mechanizm into the admin page 
+New control layer is added after send button is triggered. This send button lead the flow on emailsendercontrol method.
+This method basically check the checkboxes, title and messages. We an array here with three false elements in it.
+Each appropriate condition turns relevant element up to true, if end up array have three true , process execute the emailSender method
+or else ControlPopUp() method is triggered. Gives user a idea what is missing on the process.
+
+Pop up automatically , dissappears in curtain times 
+
+<img width="848" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/e0f38049-32c8-4994-bdb3-d729c9a40055">
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/1df12625-9f04-4efe-a619-e23cfd5df6da)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/5dc6a375-f342-486f-9dbe-616a0daaae1a)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/70706b90-a4c7-4183-b96f-58f9346edc51)
+
+We push the data via post method, on the server side.
+I added new chain mechanism in order to make routing system more clear 
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/e4c6a3cb-d248-445f-8744-141fb5e8a81b)
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/ff56dba2-bd2f-4272-8a96-996258d71fe2)
+
+
+Route navigates app into sendingemailservice middleware which is located in googleservice.js,
+Sendingemailservice method is in charge to take email user , email title and email body information from req.body and 
+seperate them into different variable types.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/034bb401-e402-4089-bf43-df26976d36e7)
+
+SendEmail method is ivoked by Sendingemailservice method and takes required email information in order to create raw data 
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/505a9164-8b0a-4f2e-aaf2-1ec607b08445)
+
+In SendEmail method, optimal raw data is created within appropriate google specification and sending back to the Sendingemailservice method
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/4f61fd34-bab7-4ba5-bd6c-a09fc3ba3b15)
+
+New promises array is generated from raw data array via array maping method and all promises are executed,
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/966d485d-102f-4ac9-8b2f-b82d8d19be08)
+
+
+After all routing jump into the second middleware name called adminController.UserJoin , here as I mentioned before user and field data generated into
+a object which is used in ejs.
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/60f75566-5483-4048-a1c8-e1fd75b5aa7c)
+
+Then after adminController.ProtectedAminPage middleware is executed and admin user screen is showed up one more time.
+
+<img width="917" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/9f7b782c-09fa-4a97-a01f-8c20d2a27366">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
