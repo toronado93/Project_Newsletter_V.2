@@ -247,7 +247,13 @@ And Final result we managed to fetch mails in ideal format
 Implementing Email system into the project
 
 
-I added subject textbox and logout button on admin page.
+I added subject textbox and logout button on admin page and defined checkbox system. Admin can chose whether all user or specific user to send email
+
+<img width="860" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/34cc6ef9-8fe4-4915-8228-d967323f1ac9">
+
+<img width="833" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/33c62b03-7b96-4f2f-8bde-5ad6ed2c28a9">
+
+
 
 <img width="947" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/aa036623-ce07-417a-8825-ca33eb12ed67">
 
@@ -301,6 +307,12 @@ a object which is used in ejs.
 Then after adminController.ProtectedAminPage middleware is executed and admin user screen is showed up one more time.
 
 <img width="917" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/9f7b782c-09fa-4a97-a01f-8c20d2a27366">
+
+Testing 
+
+<img width="868" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/5d34b752-a862-44f6-ab75-574d99db4337">
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/f6a29433-3aad-4612-9579-823f46ad2452)
 
 
 
