@@ -370,8 +370,11 @@ Delete User
 
 Admin screen Final Glence
 
+<img width="1504" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/28531041-c898-40f8-8705-922540680adb">
 
+<img width="1504" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/585fd191-f736-46c9-a3da-e83e58529c56">
 
+<img width="1504" alt="Screenshot 2023-08-02 at 22 10 54" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/ba94a45f-6295-4316-855a-a9293461d21f">
 
 
 
