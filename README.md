@@ -335,9 +335,39 @@ Flow;
 
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/dd7bceea-a780-417f-a86b-56a791a42596)
 
+Next development is taken place in admin page.
+
+Now admin be able to update update or delete users.
+
+I added nice front-end mechanism for that as you can see below.
+
+Following method catch clicked buttons info and created new input field in order to customise user name.
 
 
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/22a941db-1ff6-4f25-be6c-0e052043e358)
 
+
+I created to functions. 
+One of them is responsible to trigger patch request and sending user id which is email in this case and updated data information 
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/0ea50f92-fc11-4287-aa20-f3001ef755e4)
+
+
+Other function triggers the delete request 
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/f23fdb32-3200-4c67-a2e1-ac9a94b21207)
+
+On the server side 
+
+Update User
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/c1305e50-ab7f-4b27-927b-0c9eaa02b208)
+
+Delete User
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/f60a25cc-5334-4eec-b2fb-a9ad1df0c5f4)
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/c564eecd-4c61-40ba-8391-800663894531)
 
 
 
