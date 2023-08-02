@@ -5,6 +5,9 @@ const User = require("../models/user");
 exports.UserJoin = async (req,res,next)=>{
 
 
+  try {
+
+
     const userwithfieldname = await User.aggregate(
       [
         {
@@ -31,8 +34,14 @@ exports.UserJoin = async (req,res,next)=>{
     );
   
     req.table_join = userwithfieldname; 
-    // console.log(userwithfieldname);
     next();
+    
+  } catch (error) {
+
+    console.log(error);
+    
+  }
+
   
   }
 
@@ -106,9 +115,8 @@ exports.UserJoin = async (req,res,next)=>{
   // Catch the Join Array Here
   
    const join_data_array = req.table_join;
-
-  console.log("Join_data_check",join_data_array);
-
+  
+  // console.log("Join_data_check",join_data_array);
 
     req.user ? res.render("admin",{join_data_array}): res.sendStatus(401);
 
@@ -116,5 +124,5 @@ exports.UserJoin = async (req,res,next)=>{
 
   }
 
-  
+
 

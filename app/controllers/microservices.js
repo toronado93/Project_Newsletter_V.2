@@ -1,5 +1,10 @@
 
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const keyPath = ".credentials/credentials.json";
+const fs = require("fs");
+const nodeMailer = require("nodemailer");
+
 require("dotenv").config();
 
 
@@ -110,3 +115,81 @@ exports.SendEmail =function (user_array,email_title,email_body){
 
 
 
+exports.WelcomeEmail = async (req,res)=>{
+
+  const useremail =req.body.email;
+  const username  =req.body.name;
+
+  //  Nodemailer requirement
+  //  Make sure in your Google acount 2 factor open
+  //  And after create an app password
+  //  Use this  password here.
+
+  const transporter = nodeMailer.createTransport({
+    host:"smtp.gmail.com",
+    port:465,
+    secure:true,
+    auth:{
+      user:process.env.GOOGLE_EMAIL,
+      pass:process.env.GOOGLE_EMAIL_APP_PASS,
+    }
+  });
+
+
+  try {
+
+   const info = await transporter.sendMail({
+
+    from:"eep.tech.design@gmail.com",
+    to:useremail,
+    subject:`Dear ${username}`,
+    text:"Welcome to our family"
+    
+   });
+   console.log("Message sen"+info.messageId);
+   res.render("success",{user_email:useremail});
+  } catch (error) {
+
+    console.log(error);
+    res.status(500).send("Sorry, the requested resource was not found.");
+    
+  }
+
+
+
+  // res.render("success");
+}
+
+function FileExistence (path){
+
+   // Checking if the data exist
+   fs.access(path, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error("File not found or inaccessible:", err);
+    } else {
+      console.log("File exists and is accessible.");
+      
+    }
+  });
+
+}
+
+
+function ReadFile (path){
+
+    // Checking data what in it 
+    fs.readFile(keyPath, "utf8", (err, data) => {
+      if (err) {
+        console.error("Error reading the file:", err);
+      } else {
+        try {
+          const jsonContent = JSON.parse(data);
+          console.log("File content:", jsonContent);
+        } catch (parseError) {
+          console.error("Error parsing JSON:", parseError);
+        }
+      }
+
+      });
+
+}

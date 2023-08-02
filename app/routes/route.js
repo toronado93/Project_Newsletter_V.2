@@ -1,5 +1,6 @@
 const gs =require("../controllers/googleservice.js");
 const adminController =require("../controllers/adminController.js");
+const usersController =require("../controllers/usersController.js");
 
 
 exports.processEmailAndData = (req, res, next) => {
@@ -18,3 +19,4 @@ exports.processEmailAndData = (req, res, next) => {
       });
     });
   };
+

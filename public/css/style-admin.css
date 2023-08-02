@@ -99,6 +99,53 @@ body{
 
 /* Table */
 
+.table_wrapper {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.button_ok_hidden {
+
+    background-color: #293ea9;
+    color: var(--clr-neutral-150);
+    border: none;
+    padding: var(--size-200);
+    border-radius: 0.5rem;
+
+    visibility: hidden;
+    opacity: 0;
+    margin-top: var(--size-300);
+    align-self: flex-end;
+    transition: visibility,opacity 0.5s ease-out;
+
+} 
+
+.button_ok {
+
+    background-color: #293ea9;
+    color: var(--clr-neutral-150);
+    border: none;
+    padding: var(--size-200);
+    border-radius: 0.5rem;
+    align-self: flex-end;
+    visibility: visible;
+    opacity: 1;
+
+    transition: visibility,opacity 1s ease-in;
+
+}
+
+.button_ok:hover{
+
+    background-color: #071452;
+    width: calc(max-content + 30px);
+
+    transition: background-color 1s ease-in;
+
+}
+
 
 /* Apply general styles to the table */
 .custom-table {
@@ -247,8 +294,6 @@ body{
 
 }
 
-
-
 /* Transition Classess */
 .hidden {
     opacity: 0;
@@ -260,4 +305,89 @@ body{
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  }
+
+  #popup-delete{
+
+    position: absolute;
+    transform: translate(0, -50%);
+    z-index: 9999; 
+
+    background-color: var(--clr-neutral-150);
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    
+
+  }
+
+  #popup-delete > .popup-delete-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--clr-neutral-150);
+    background-color: var(--clr-primary-300);
+    padding:var(--size-100) var(--size-200);
+  }
+
+  #popup-delete > .popup-delete-header > button {
+
+    color: var(--clr-neutral-150);
+    background-color: rgb(205, 17, 17);
+    padding: var(--size-100) var(--size-300);
+    border: none;
+    border-radius: 0.3rem;
+  }
+
+  #popup-delete > .popup-delete-main {
+
+    padding: var(--size-300);
+
+  }
+
+  #popup-delete > .popup-delete-footer {
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--size-200);
+
+  }
+
+  #popup-delete > .popup-delete-footer > button {
+
+    padding: 0 var(--size-300);
+    border-radius: 03.rem;
+    font-weight: var(--fw-extraLight);
+
+  }
+
+  #popup-warning {
+
+    position: absolute;
+    background-color: var(--clr-neutral-150);
+    padding: var(--size-300) var(--size-300);
+    border-radius: 0.3rem;
+    transform: translate(0,-900%);
+
+  }
+
+
+
+  .button_logout{
+
+    border: none;
+    padding: var(--size-100);
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    margin-block-start: var(--size-300);
+    background-color: var(--clr-primary-100);
+    color: var(--clr-neutral-150);
+
+  }
+
+  .button_logout:hover{
+
+    background-color: var(--clr-primary-150);
+
   }

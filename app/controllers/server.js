@@ -30,7 +30,6 @@ app.use(express.json());
 
 
 
-
 // Routes
 
 const route = require(__dirname+'/app/routes/route.js');
@@ -167,10 +166,8 @@ app.get("/adminlogin",adminController.UserJoin,adminController.ProtectedAdminPag
 // Above route chain cause a problem so we write new chain in order to control our process
 app.post("/adminsendingemail",route.processEmailAndData);
 
-// Patch AND DELETE Request
-app.patch("/users/:userId",usersController.UpdateUser,adminController.UserJoin,adminController.ProtectedAdminPage);
-app.delete("/users/:userId",usersController.DeleteUser,adminController.UserJoin,adminController.ProtectedAdminPage);
-
+// Patch Request
+app.patch("/users/:userId",usersController.UpdateUser);
 // Patch Route Example
 // app.patch("/users/:userId",route.UpdateUserroute);
 

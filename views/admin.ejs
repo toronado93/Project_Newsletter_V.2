@@ -26,71 +26,78 @@
 
     <div class="moving-gradient-background">
 
-<table class="custom-table">
+        <div class="table_wrapper" >
 
-    <thead>
-        <tr>
-            <th> <input id="parent_checkbox" type="checkbox" value=""> </th>
-            <th>User Name</th>
-            <th>Email</th>
-            <th>Field</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-        <tbody>
+            <table class="custom-table">
 
-            <!-- I need to create a tr for all user -->
-
-            <!-- Example -->
-            <!-- <tr>
-                <td>Emin Pehlivan</td>
-                <td>dasjgnfkd@hotmail.com</td>
-                <td>Hotmail</td>
-                <td>
-                    <button>Button A</button>
-                    <button>Button A</button>
-                    <button>Button A</button>
-                </td>
-            </tr> -->
-
-            <% for(let i = 0; i < join_data_array.length ; i++) { %>
-
-            <tr>
-                <td>  <input name="<%= join_data_array[i].email %>" type="checkbox" value=""> </td>
-                <td> <%= join_data_array[i].name %></td>
-                <!-- Data is filled, input is created -->
-                <td> <%= join_data_array[i].email %></td>
-                <td> <%= join_data_array[i].fieldname %></td>
-                <td>
-                    <!-- <button><img class="update_button" src="images/update_button.svg" alt=""></button>
-                    <button><img  class="delete_button" src="images/delete_button.svg" alt=""></button>
-                     -->
-                     <button>
-                        <svg id="svg1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 2 A 2.0002 2.0002 0 1 0 25 6 C 35.517124 6 44 14.482876 44 25 C 44 35.517124 35.517124 44 25 44 C 14.482876 44 6 35.517124 6 25 C 6 19.524201 8.3080175 14.608106 12 11.144531 L 12 15 A 2.0002 2.0002 0 1 0 16 15 L 16 4 L 5 4 A 2.0002 2.0002 0 1 0 5 8 L 9.5253906 8 C 4.9067015 12.20948 2 18.272325 2 25 C 2 37.678876 12.321124 48 25 48 C 37.678876 48 48 37.678876 48 25 C 48 12.321124 37.678876 2 25 2 z"/></svg>
-                     </button>
-                     <button><?xml version="1.0"?><svg id="svg2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px">    <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"/></svg></button>
-
-                </td>
-
-            </tr>
-
-            <% } %>
+                <thead>
+                    <tr>
+                        <th> <input id="parent_checkbox" type="checkbox" value=""> </th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Field</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                    <tbody>
             
-        </tbody>
-</table>
+                        <!-- I need to create a tr for all user -->
+            
+                        <!-- Example -->
+                        <!-- <tr>
+                            <td>Emin Pehlivan</td>
+                            <td>dasjgnfkd@hotmail.com</td>
+                            <td>Hotmail</td>
+                            <td>
+                                <button>Button A</button>
+                                <button>Button A</button>
+                                <button>Button A</button>
+                            </td>
+                        </tr> -->
+            
+                        <% for(let i = 0; i < join_data_array.length ; i++) { %>
+            
+                        <tr id="td_wrapper<%= i %>">
+                            <td>  <input name="<%= join_data_array[i].email %>" type="checkbox" value=""> </td>
+                            <td id="td<%= i %>" > <%= join_data_array[i].name %></td>
+                            <!-- Data is filled, input is created -->
+                            <td> <%= join_data_array[i].email %></td>
+                            <td> <%= join_data_array[i].fieldname %></td>
+                            <td>
+                                <!-- <button><img class="update_button" src="images/update_button.svg" alt=""></button>
+                                <button><img  class="delete_button" src="images/delete_button.svg" alt=""></button>
+                                 -->
+                                 <button id="btn<%= i %>" >
+                                    <svg id="svg1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px"><path d="M 25 2 A 2.0002 2.0002 0 1 0 25 6 C 35.517124 6 44 14.482876 44 25 C 44 35.517124 35.517124 44 25 44 C 14.482876 44 6 35.517124 6 25 C 6 19.524201 8.3080175 14.608106 12 11.144531 L 12 15 A 2.0002 2.0002 0 1 0 16 15 L 16 4 L 5 4 A 2.0002 2.0002 0 1 0 5 8 L 9.5253906 8 C 4.9067015 12.20948 2 18.272325 2 25 C 2 37.678876 12.321124 48 25 48 C 37.678876 48 48 37.678876 48 25 C 48 12.321124 37.678876 2 25 2 z"/></svg>
+                                 </button>
+                                 <button data="<%= join_data_array[i].email %>" onclick="DeleteuserPopUp(`<%= join_data_array[i].email %>`)" ><?xml version="1.0"?><svg data="d" id="svg2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px">    <path data="Distinguish" d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"/></svg></button>
+            
+                            </td>
+            
+                        </tr>
+            
+                        <% } %>
+                        
+                    </tbody>
+            </table>
 
-<div class="email_service" >
-    <input class="title_email" name="title_email" type="text" placeholder="Subject">
-    <div class="body_wrapper" >
-    <input class="input_email" name="input_email" type="text" placeholder="Email">
-    <button class="button_send" onclick="emailSenderControl()">Send</button>
-</div>
-    <div class="button_wrapper">
-    <button class="button_google_service" onclick="gmailServiceStarter()">Connect to the Email Service</button>
-    <form id="0101" action="/logout" method="get"></form>
-        <button class="button_logout" form="0101" type="submit"> Logout</button>
-</div>
-</div>
+            <button id="btn_oky_01" class="button_ok_hidden" onclick="SendPatchRequest()">Save</button>
+            
+        </div>
+
+
+            <div class="email_service" >
+                <input class="title_email" name="title_email" type="text" placeholder="Subject">
+                <div class="body_wrapper" >
+                <input class="input_email" name="input_email" type="text" placeholder="Email">
+                <button class="button_send" onclick="emailSenderControl()">Send</button>
+            </div>
+                <div class="button_wrapper">
+                <button class="button_google_service" onclick="gmailServiceStarter()">Connect to the Email Service</button>
+                <form id="0101" action="/logout" method="get"></form>
+                    <button class="button_logout" form="0101" type="submit"> Logout</button>
+            </div>
+            </div>
 
 
 <!-- POP UP -->
@@ -99,8 +106,26 @@
   <p>Recipient and email content can't be empty</p>
 </div>
 
+<div id="popup-delete" class="hidden"  >
+    <div class="popup-delete-header">
+        <p>Are You Sure?</p>
+        <button onclick="DeleteuserPopUp()">X</button>
+    </div>
+    <div class="popup-delete-main">
+        <p>Would you like to Delete User?</p>
+    </div>
+    <div class="popup-delete-footer" >
+        <button id="button_user_delete">Delete</button>
+    </div>
+    </div>
 
+<!-- Warning Pop-Up -->
+
+<div id="popup-warning">
+    
+    <p>First click "Connect to the Email Service" Button Before Sending Email"</p>
 </div>
+
 
 
 
@@ -252,6 +277,227 @@
      
 
     }
+
+    // Event Listener
+
+    // Last Button and td info
+    let lastinput   ="";
+    let lasttd      ="";
+    let lastparrent =""
+
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach((b,index)=>{
+
+        b.addEventListener("click",(event)=>{
+            // Prevent any other event listeners from triggering if they exist
+  
+
+            // Distinguish refresh and delete button
+            // Delete buttons have data attribute
+            // Add data attiribute condition system
+
+           
+
+            if(!event.target.hasAttribute("data"))
+            {
+               
+
+            // Restart All mechanism First
+            // Terminate created inputs
+            // And Make visible tds.
+            if(lasttd !==""){
+
+                lasttd.style.display="block";
+                lasttd.style.border="none";
+                lastparrent.removeChild(lastinput);
+                lasttd ="";
+            }
+            
+            // Check if there is an input already created dont create new one.
+            if(!document.getElementById(`unique_input`)){
+
+            // event.target button itself
+            //  Button
+            const btn = event.target.parentNode;
+            
+            // Finding td name
+           const td_id = Classifier(btn.id);
+            // Finding td itself and hide it
+            // td [0] respesent td td[1] represent wrapper parent
+           const td_itself = document.getElementById(td_id[0]);
+           // td_itself.style.visibility="hidden";
+            td_itself.style.display="none";
+            // Creating input and replace td
+            const input = document.createElement('input');
+            // Give them index in order to check for next time
+            input.id="unique_input";
+            input.type = 'text';
+            // Putting email info as a Name
+            // Go to the first child's first child via big parents
+            const first_child_name = document.getElementById(td_id[1]).firstElementChild.firstElementChild.name;
+            input.name = first_child_name;
+            input.style.padding="20px";
+            // Add input in same level with td
+            td_itself.insertAdjacentElement("afterend",input);
+
+            document.getElementById("btn_oky_01").classList.remove("button_ok_hidden");
+            document.getElementById("btn_oky_01").classList.add("button_ok");
+
+            // Last button and td info 
+            // When next button is clicked without patch request send
+            // We  reverse the last changing 
+            lasttd=td_itself;
+            lastinput=input;
+            lastparrent= document.getElementById(td_id[1]);
+
+        }
+
+            }
+        });
+
+   
+
+    });
+
+    function Classifier (btn){
+
+        // Take last number of on coming btn add on td and send back.
+
+       const number_info = btn.slice(-1);
+
+       return  [`td${number_info}`,`td_wrapper${number_info}`];
+
+    }  
+
+
+    async function SendPatchRequest(){
+
+        // Make invisible to save button
+        document.getElementById("btn_oky_01").classList.remove("button_ok");
+        document.getElementById("btn_oky_01").classList.add("button_ok_hidden");
+        
+        // take input element info
+        const input = document.getElementById("unique_input");
+
+        // console.log(input);
+      
+        // Email info
+        const userId = input.name;
+        const updatedData = {name:input.value};
+
+        // Fetch method controllers
+        // Dont proceed without getting input value
+
+        if(input.value){
+
+        try {
+        const response = await fetch(`/users/${userId}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedData),
+        });
+
+        const data = await response.json();
+        console.log(data); // The response from the server (e.g., { success: true })
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+
+    // Reload the page for Caching Issue  
+    setTimeout(() => {
+  location.reload(); // Reload the page after a short delay
+}, 1);
+
+  
+    };
+
+    let deleted_user_email="";
+    function DeleteuserPopUp(id){
+
+        if(id !=="")
+        {
+            deleted_user_email=id;
+
+        }
+        
+        const popup = document.getElementById('popup-delete');
+
+        popup.classList.toggle("hidden");
+        popup.classList.toggle("popup-show");
+
+
+    }
+
+        // Event listener
+
+        const button_user_delete = document.getElementById("button_user_delete");
+        const popup = document.getElementById('popup-delete');
+
+        button_user_delete.addEventListener("click",()=>{
+
+            DeleteUser(deleted_user_email);
+
+        popup.classList.toggle("hidden");
+        popup.classList.toggle("popup-show");
+
+        });
+
+
+
+
+   async function DeleteUser(user_id){
+
+    // Sending Delete Request
+
+    if(user_id)
+    {
+
+                try {
+
+                const response = await fetch(`/users/${user_id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                // body: JSON.stringify(updatedData),
+                });
+
+                const data = await response.json();
+                console.log(data); // The response from the server (e.g., { success: true })
+            
+                
+            } catch (error) {
+                console.error("Error:", error);
+                }
+                
+
+    }
+
+              
+
+                //   Reload the page for Caching Issue  
+                  setTimeout(() => {
+                location.reload(); // Reload the page after a short delay
+                }, 1000);
+
+
+                    
+     }
+
+
+    //  Hide Warning Pop-Up
+
+    setTimeout(()=>{
+
+        const popup = document.getElementById('popup-warning');
+        popup.classList.toggle("hidden");
+
+    },5000)
+    
 
    
 </script>

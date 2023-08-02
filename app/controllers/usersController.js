@@ -16,7 +16,7 @@ exports.processUser = async (req, res) => {
     // if responde is empty array which means user is not exist 
     // so lets create a user then
     if(responde.length === 0){
-      res.render("form");
+      res.render("form",{transferred_email:string_email});
     }
     else{
       // which means user is exist 
@@ -28,6 +28,29 @@ exports.processUser = async (req, res) => {
   // Check the user if it is exist redirect you re already exist page
 };
 
+
+exports.processUserRefactor = async (req, res , next) => {
+  const string_email = req.body.email;
+  console.log("We re checking you: ",string_email);
+
+  try {
+    const responde = await this.getUser(string_email);
+    // if responde is empty array which means user is not exist 
+    // so lets create a user then
+    if(responde.length === 0){
+      next();
+    }
+    else{
+      // which means user is exist 
+      // res.render("existence");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  // Check the user if it is exist redirect you re already exist page
+};
+
+
 // GET /users
 exports.getUser = async (string_email) => {
 
@@ -35,7 +58,7 @@ exports.getUser = async (string_email) => {
 };
 
 // POST /users
-exports.createUser = async (req, res) => {
+exports.createUser = async (req, res, next) => {
 
   console.log("createuser works");
   
@@ -62,7 +85,7 @@ exports.createUser = async (req, res) => {
     
       console.log("New user is created");
       
-      res.render("success.ejs");
+      next();
     }
     
   } catch (error) {
@@ -118,6 +141,50 @@ exports.fullfillmentforonce = (req,res,next)=>{
   });
 
   next();
+
+}
+
+
+exports.UpdateUser = async (req,res,next)=>{
+
+  const useremail = {email: req.params.userId};
+  const updatedData =  req.body.name;
+
+  try {
+
+   const responde = await User.findOneAndUpdate(
+      useremail,
+      {
+        $set: { name: updatedData }
+      }
+    );
+
+    console.log("User is updated");
+
+    next();
+    
+  } catch (error) {
+
+    console.log(error);
+    
+  }
+
+}
+
+
+exports.DeleteUser = async (req,res,next)=>{
+
+const useremail = {email:req.params.userId};
+
+try {
+
+  await User.findOneAndDelete(useremail)
+      console.log("User is Deleted");
+      next();
+    
+} catch (error) {
+  console.log(error);
+}
 
 }
 
