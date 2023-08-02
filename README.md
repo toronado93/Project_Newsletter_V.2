@@ -386,6 +386,13 @@ Glitch link:
 admin email : 01testuser0101@gmail.com
 pass:123456;
 
+If you wanna test calendar features
+
+Test user
+email: 01testuser0101@gmail.com
+pass:  testuser0101.
+
+
 
 
 
