@@ -314,6 +314,31 @@ Testing
 
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/f6a29433-3aad-4612-9579-823f46ad2452)
 
+Welcome message sender added on the app.
+
+When new user enroll the application , now  app sends welcome mail via nodemailer implementation
+
+That is the route which is triggered once user send their info
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/6eaa5969-3e78-4e28-9dca-7e2818b71594)
+
+Nodemailer implementation
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/7514833a-8a57-4601-aa98-d48dfb1396fc)
+
+Flow;
+<img width="913" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/f8bd1bf8-1f81-4f8b-9df9-1321fa3ed4a3">
+
+<img width="612" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/6f3a0a4b-0cf1-4873-b69c-10998bd71239">
+
+<img width="594" alt="image" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/b929609e-865e-4a4d-af41-f9ed6f67d9e3">
+
+![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/dd7bceea-a780-417f-a86b-56a791a42596)
+
+
+
+
+
 
 
 
