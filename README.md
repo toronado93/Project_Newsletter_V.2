@@ -381,7 +381,7 @@ Testing:
 
 You can try the app , you can enroll and recieve welcome mail and even enter the system as a admin and enjoy sending email and crud services.
 
-Glitch link:
+Glitch link: https://newsletter-v2.glitch.me/
 
 admin email : 01testuser0101@gmail.com
 pass:123456;
