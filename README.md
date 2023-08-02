@@ -377,7 +377,12 @@ Admin screen Final Glence
 <img width="1504" alt="Screenshot 2023-08-02 at 22 10 54" src="https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/ba94a45f-6295-4316-855a-a9293461d21f">
 
 
+Testing:
 
+You can try the app , you can enroll and recieve welcome mail and even enter the system as a admin and enjoy sending email and crud services.
+
+admin email : 01testuser0101@gmail.com
+pass:123456;
 
 
 
