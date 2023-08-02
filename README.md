@@ -367,7 +367,8 @@ Delete User
 
 ![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/f60a25cc-5334-4eec-b2fb-a9ad1df0c5f4)
 
-![image](https://github.com/toronado93/Project_Newsletter_V.2/assets/62039608/c564eecd-4c61-40ba-8391-800663894531)
+
+Admin screen Final Glence
 
 
 
